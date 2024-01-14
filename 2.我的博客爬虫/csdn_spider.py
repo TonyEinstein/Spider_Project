@@ -32,9 +32,9 @@ def get_url(url):
         response = requests.get(url=url, headers=header)
     except Exception as e:
         print(e)
-        return "1","1","1","1","1",url
+        return "1","1","1","1","1","1",url
     if response.status_code != 200:
-        return "0","0","0","0","0",url
+        return "0","0","0","0","0","0",url
     # 解码响应对象，得到页面源码
     content = response.text
     # 解析服务器响应的文件
@@ -49,7 +49,9 @@ def get_url(url):
     like = parse_html.xpath('//*[@id="mainBox"]//div[@class="article-bar-top"]//span[@id="blog-digg-num"]/text()')[0].replace(" ", "").replace("\n", "")
     # 专栏
     special = parse_html.xpath('//*[@id="mainBox"]//div[@class="blog-tags-box"]/div[@class="tags-box artic-tag-box"]//a[@rel="noopener"]/text()')
-    return title,read,collect,like,special,url
+    special2 = parse_html.xpath('//*[@id="blogColumnPayAdvert"]//div[@class="item-l"]//span[@class="title item-target"]//span[@class="tit"]/text()')
+
+    return title,read,collect,like,special,special2,url
 
 def main():
     # 1.对每一页的文章进行抓取链接
@@ -75,13 +77,13 @@ def main():
     # 执行多线程
     thread_pool = concurrent.futures.ThreadPoolExecutor()
     results = list(tqdm(thread_pool.map(get_url, url_links), desc="并行计算", total=len(url_links), file=sys.stdout,position=0))
-    title,read,collect,like,special,url = zip(*results)
+    title,read,collect,like,special,special2,url = zip(*results)
     for j in range(len(url)):
-        datas.append([title[j],read[j],collect[j],like[j],special[j],url[j]])
+        datas.append([title[j],read[j],collect[j],like[j],special[j],special2[j],url[j]])
     thread_pool.shutdown()
     # 存储数据
-    df = pd.DataFrame(datas,columns=["标题","阅读","收藏","点赞","专栏","链接"])
-    df.to_excel("data.xlsx",index=False,encoding="utf-8")
+    df = pd.DataFrame(datas,columns=["标题","阅读","收藏","点赞","分类专栏","专栏","链接"])
+    df.to_excel("data2.xlsx",index=False,encoding="utf-8")
     print(df)
 
 if __name__ == '__main__':
