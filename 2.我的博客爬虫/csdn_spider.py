@@ -83,7 +83,7 @@ def main():
     thread_pool.shutdown()
     # 存储数据
     df = pd.DataFrame(datas,columns=["标题","阅读","收藏","点赞","分类专栏","专栏","链接"])
-    df.to_excel("data2.xlsx",index=False,encoding="utf-8")
+    df.to_excel("data3.xlsx",index=False,encoding="utf-8")
     print(df)
 
 if __name__ == '__main__':
