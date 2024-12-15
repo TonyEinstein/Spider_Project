@@ -1,11 +1,13 @@
 # 这是一个示例 Python 脚本。
 
-import numpy as np
-import pandas as pd
+from fake_useragent import UserAgent
 
-# 按间距中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    df = pd.read_excel("20230429193515_均重导出数据.xlsx",sheet_name="基础数据")
-    writer = pd.ExcelWriter("英德公司-均重导出数据.xlsx",engine='xlsxwriter')
+# 创建 UserAgent 对象
+ua = UserAgent()
+
+# 获取随机的 User-Agent 字符串
+user_agent = ua.random
+print(user_agent)
+
     
 
