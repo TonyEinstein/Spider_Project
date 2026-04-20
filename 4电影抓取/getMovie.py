@@ -41,7 +41,7 @@ class Movie:
             #确定起始URL
             urls = 'https://movie.douban.com/j/new_search_subjects?sort=U&range=0,10&tags=&start={}'.format(i)
             try:
-                responses = requests.get(urls,headers=self.headers,timeout=5,verify=False)  # verify=False，不验证证书
+                responses = requests.get(urls,headers=self.headers,timeout=3,verify=False)  # verify=False，不验证证书
                 if responses.status_code == 200:
                     #如果起始URL响应正常，打印一下信息
                     print('成功连接： ', urls)
@@ -49,7 +49,7 @@ class Movie:
                     for dicts in responsesDict['data']:
                         url = dicts['url']
                         try:
-                            response = requests.get(url, headers=self.headers, timeout=5, verify=False)
+                            response = requests.get(url, headers=self.headers, timeout=3,verify=False)
                             response.encoding = 'utf-8'
                             if response.status_code == 200: #对是否有正常的响应 加入判断
                                 #如果url响应正常打印如下信息
@@ -69,14 +69,14 @@ class Movie:
                                 yield item
                             else:
                                 pass
-                        except:
+                        except Exception as e:
                             #url没有正常响应
-                            print("子网链接失败:  ",url)
+                            print("子网链接失败:  ",url,"\t原因:",e)
                 else:
                     pass
-            except:
+            except Exception as e:
                 #起始URL没有返回正常响应
-                print('当前urls:  ', urls, '  未响应！')
+                print('当前urls:  ', urls, '  未响应：{}'.format(e))
 
     def saveFile(self):
         datas = [] #所有数据将加入这里
@@ -85,7 +85,7 @@ class Movie:
         dataColums = ['影片名', '最终评分', '五星', '四星', '三星', '二星', '一星']
         #将数据转成Dataframe
         files = pd.DataFrame(columns=dataColums, data=datas)
-        files.to_csv(r'data.csv',index=None) #=保存到文件
+        files.to_csv(r'data2.csv',index=None) #=保存到文件
         #成功保存到文件后，打印输出done!提示
         print("done!")
 
