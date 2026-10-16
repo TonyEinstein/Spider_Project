@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 # @FileName  :log.py
 # @Time      :2023/1/6 17:53
-# @Author    : https://github.com/chenruhai?tab=repositories
+# @Author    : https://github.com/TonyEinstein?tab=repositories
 import logging
 import sys
 from logging import handlers

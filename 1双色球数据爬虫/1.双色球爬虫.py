@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # time: 2024/4/14 下午7:47
 # file: 1.双色球爬虫.py
-# author: chenruhai
-# email: ruhai.chen@qq.com
+# author: TonyEinstein
+# email: 116338825+TonyEinstein@users.noreply.github.com
 
 
 

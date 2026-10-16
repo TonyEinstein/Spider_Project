@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # time: 2024/1/14 18:47
 # file: csdn_spider.py
-# author: chenruhai
-# email: ruhai.chen@qq.com
+# author: TonyEinstein
+# email: 116338825+TonyEinstein@users.noreply.github.com
 import concurrent
 import sys
 
@@ -57,7 +57,7 @@ def main():
     # 1.对每一页的文章进行抓取链接
     url_links = []
     for i in tqdm(range(1,10)):
-        URL = "https://chenruhai.blog.csdn.net/article/list/{}".format(i)
+        URL = "https://TonyEinstein.blog.csdn.net/article/list/{}".format(i)
         try:
             urls = get_URL(URL)
         except Exception as e:

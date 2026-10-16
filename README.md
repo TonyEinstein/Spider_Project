@@ -11,6 +11,6 @@
 pip install -r requirements.txt
 ```
 
-# To contact me
-* e-mail 1：crh19981229@gmail.com
-* e-mail 2：ruhai.chen@foxmail.com
+## License
+
+[MIT](./LICENSE) © TonyEinstein
