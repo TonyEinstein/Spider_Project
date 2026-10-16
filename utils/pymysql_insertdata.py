@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 # @FileName  :pymysql_insertdata.py
 # @Time      :2023/1/7 10:09
-# @Author    : https://github.com/TonyEinstein?tab=repositories
 import time
 import pandas as pd
 import pymysql

@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 # time: 2024/1/14 18:47
 # file: csdn_spider.py
-# author: TonyEinstein
-# email: 116338825+TonyEinstein@users.noreply.github.com
 import concurrent
 import sys
 

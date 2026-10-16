@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/6/12 19:00
-# @Author  :
 # @File    : GetMovie.py
 
 import requests

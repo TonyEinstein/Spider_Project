@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 # time: 2024/11/29 上午2:17
 # file: mian.py
-# author: TonyEinstein
-# email: 116338825+TonyEinstein@users.noreply.github.com
 
 
 
